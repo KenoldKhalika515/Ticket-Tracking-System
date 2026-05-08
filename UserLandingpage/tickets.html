@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tickets - TicketFlow</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tickets.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+
+    <div class="logo">
+      TicketFlow
+    </div>
+
+    <div class="user-box">
+      <span>👤 User</span>
+      <a href="index.html" class="logout">Logout</a>
+    </div>
+
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <a href="user.html">Dashboard</a>
+
+      <a href="user.html">
+        Report Issue
+      </a>
+
+      <a class="active" href="tickets.html">
+        My Tickets
+      </a>
+
+      <a href="#">
+        Notifications
+      </a>
+
+      <a href="#">
+        Settings
+      </a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+      <!-- PAGE HEADER -->
+      <div class="header">
+        <h1>My Tickets</h1>
+        <p>Track all your reported issues in one place</p>
+      </div>
+
+      <!-- TOOLBAR -->
+      <div class="toolbar">
+
+        <input type="text" placeholder="Search ticket...">
+
+        <select>
+          <option>All Status</option>
+          <option>Open</option>
+          <option>Pending</option>
+          <option>Resolved</option>
+          <option>Closed</option>
+        </select>
+
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Subject</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>TF-001</td>
+              <td>Network down</td>
+              <td>Network</td>
+              <td>
+                <span class="priority high">
+                  High
+                </span>
+              </td>
+              <td>
+                <span class="status open">
+                  Open
+                </span>
+              </td>
+              <td>2026-05-09</td>
+              <td>Blantyre HQ</td>
+            </tr>
+
+            <tr>
+              <td>TF-002</td>
+              <td>Printer not working</td>
+              <td>Hardware</td>
+              <td>
+                <span class="priority medium">
+                  Medium
+                </span>
+              </td>
+              <td>
+                <span class="status pending">
+                  Pending
+                </span>
+              </td>
+              <td>2026-05-08</td>
+              <td>IT Office</td>
+            </tr>
+
+            <tr>
+              <td>TF-003</td>
+              <td>Login issue</td>
+              <td>Software</td>
+              <td>
+                <span class="priority critical">
+                  Critical
+                </span>
+              </td>
+              <td>
+                <span class="status resolved">
+                  Resolved
+                </span>
+              </td>
+              <td>2026-05-07</td>
+              <td>Main Branch</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

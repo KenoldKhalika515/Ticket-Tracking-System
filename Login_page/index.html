@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Login | Secure Access</title>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <div class="login-card">
+
+    <div class="signin-heading">
+      <h1>WELCOME!</h1>
+    </div>
+
+    <form id="loginForm" action="#" method="post">
+
+      <div class="input-field">
+        <label for="username">Username</label>
+
+        <input 
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          autocomplete="username"
+          required
+        >
+      </div>
+
+      <div class="input-field">
+        <label for="password">Password</label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button type="submit" class="login-button">
+        Login
+      </button>
+
+      <div class="lost-password">
+        <a href="#" id="lostPasswordLink">
+          Lost Password?
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+
+  <script>
+    (function() {
+
+      const form = document.getElementById('loginForm');
+      const lostLink = document.getElementById('lostPasswordLink');
+
+      if (form) {
+
+        form.addEventListener('submit', function(event) {
+
+          event.preventDefault();
+
+          const usernameInput = document.getElementById('username');
+          const passwordInput = document.getElementById('password');
+
+          const username = usernameInput.value.trim();
+          const password = passwordInput.value;
+
+          if (!username || !password) {
+
+            alert('Please enter both username and password.');
+            return;
+
+          }
+
+          alert(`Access granted. Welcome back, ${username}.`);
+
+        });
+
+      }
+
+      if (lostLink) {
+
+        lostLink.addEventListener('click', function(event) {
+
+          event.preventDefault();
+
+          alert('A password reset link has been sent to your registered email address.');
+
+        });
+
+      }
+
+    })();
+  </script>
+
+</body>
+</html>

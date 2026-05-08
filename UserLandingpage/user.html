@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Ticket System</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="logo">TicketFlow</div>
+
+    <div class="user-box">
+      <span>👤 User</span>
+      <a href="index.html" class="logout">Logout</a>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a class="active" href="#">Dashboard</a>
+      <a href="#" onclick="openTicketForm()">Report Issue</a>
+      <a href="tickets.html">My Tickets</a>
+      <a href="#">Notifications</a>
+      <a href="#">Settings</a>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <div class="welcome">
+        <h1>Welcome Back 👋</h1>
+        <p>Manage and track your issues in real time</p>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats">
+        <div class="stat-box">
+          <h3>Active Tickets</h3>
+          <p>3</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Pending</h3>
+          <p>1</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>Resolved</h3>
+          <p>12</p>
+        </div>
+      </div>
+
+      <!-- ACTION -->
+      <div class="action-card">
+        <h2>Report an Issue</h2>
+        <p>Something not working? Create a ticket instantly.</p>
+        <button onclick="openTicketForm()">
+          + New Ticket
+        </button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- TICKET MODAL -->
+  <div id="ticketModal" class="modal">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h2>Create Ticket</h2>
+        <span class="close" onclick="closeTicketForm()">&times;</span>
+      </div>
+
+      <form class="ticket-form">
+
+        <label>Ticket Title / Subject</label>
+        <input type="text" placeholder="Enter subject" required>
+
+        <label>Category</label>
+        <select required>
+          <option value="">Select category</option>
+          <option>Hardware</option>
+          <option>Software</option>
+          <option>Network</option>
+          <option>Account</option>
+          <option>Other</option>
+        </select>
+
+        <label>Priority Level</label>
+        <select required>
+          <option value="">Select priority</option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+          <option>Critical</option>
+        </select>
+
+        <label>Description of Issue</label>
+        <textarea rows="4" placeholder="Describe the issue..." required></textarea>
+
+        <label>Date & Time Issue Occurred</label>
+        <input type="datetime-local" required>
+
+        <label>Location / Office</label>
+        <input type="text" placeholder="e.g. IT Office, Blantyre HQ" required>
+
+        <button type="submit">Submit Ticket</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function openTicketForm(){
+      document.getElementById("ticketModal").classList.add("show");
+    }
+
+    function closeTicketForm(){
+      document.getElementById("ticketModal").classList.remove("show");
+    }
+
+    window.onclick = function(event){
+      let modal = document.getElementById("ticketModal");
+      if(event.target === modal){
+        modal.classList.remove("show");
+      }
+    }
+  </script>
+
+</body>
+</html>
