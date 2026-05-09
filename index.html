@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Login | Secure Access</title>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <div class="login-card">
+
+    <div class="signin-heading">
+      <h1>WELCOME!</h1>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" action="user.html" method="post">
+
+      <div class="input-field">
+        <label for="username">Username</label>
+
+        <input 
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          autocomplete="username"
+          required
+        >
+      </div>
+
+      <div class="input-field">
+        <label for="password">Password</label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button type="submit" class="login-button">
+        Login
+      </button>
+
+      <div class="lost-password">
+        <a href="#" id="lostPasswordLink">
+          Lost Password?
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>
