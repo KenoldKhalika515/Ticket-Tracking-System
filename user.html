@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Dashboard - Ticket System</title>
+  <title>TicketFlow Dashboard</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="user.css">
@@ -11,14 +11,21 @@
 
 <body>
 
-  <!-- TOP BAR -->
+  <!-- TOPBAR -->
   <header class="topbar">
-    <div class="logo">TicketFlow</div>
 
-    <div class="user-box">
-      <span>👤 User</span>
-      <a href="index.html" class="logout">Logout</a>
+    <div class="logo">
+      TicketFlow
     </div>
+
+    <div class="topbar-right">
+      <span>👤 User</span>
+
+      <a href="index.html" class="logout-btn">
+        Logout
+      </a>
+    </div>
+
   </header>
 
   <!-- MAIN LAYOUT -->
@@ -26,119 +33,193 @@
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-      <a class="active" href="#">Dashboard</a>
-      <a href="#" onclick="openTicketForm()">Report Issue</a>
-      <a href="tickets.html">My Tickets</a>
+
+      <a href="#" class="active">Dashboard</a>
+      <a href="#" onclick="openModal()">Report Issue</a>
+      <a href="#">My Tickets</a>
       <a href="#">Notifications</a>
       <a href="#">Settings</a>
+
     </aside>
 
-    <!-- CONTENT -->
+    <!-- MAIN CONTENT -->
     <main class="content">
 
-      <div class="welcome">
+      <div class="welcome-section">
+
         <h1>Welcome Back 👋</h1>
-        <p>Manage and track your issues in real time</p>
+
+        <p>
+          Track, manage and report technical issues efficiently.
+        </p>
+
       </div>
 
       <!-- STATS -->
       <div class="stats">
-        <div class="stat-box">
-          <h3>Active Tickets</h3>
-          <p>3</p>
-        </div>
 
-        <div class="stat-box">
-          <h3>Pending</h3>
-          <p>1</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>Resolved</h3>
+        <div class="card">
+          <h3>Open Tickets</h3>
           <p>12</p>
         </div>
+
+        <div class="card">
+          <h3>In Progress</h3>
+          <p>5</p>
+        </div>
+
+        <div class="card">
+          <h3>Resolved</h3>
+          <p>28</p>
+        </div>
+
       </div>
 
-      <!-- ACTION -->
-      <div class="action-card">
-        <h2>Report an Issue</h2>
-        <p>Something not working? Create a ticket instantly.</p>
-        <button onclick="openTicketForm()">
-          + New Ticket
+      <!-- ACTION SECTION -->
+      <div class="action-box">
+
+        <h2>Create New Ticket</h2>
+
+        <p>
+          Submit and track system or service issues quickly.
+        </p>
+
+        <button onclick="openModal()">
+          + Report Issue
         </button>
+
       </div>
 
     </main>
 
   </div>
 
-  <!-- TICKET MODAL -->
-  <div id="ticketModal" class="modal">
+ <!-- MODAL -->
+<div class="modal" id="ticketModal">
 
-    <div class="modal-content">
+  <div class="modal-content">
 
-      <div class="modal-header">
-        <h2>Create Ticket</h2>
-        <span class="close" onclick="closeTicketForm()">&times;</span>
-      </div>
+    <!-- MODAL HEADER -->
+    <div class="modal-header">
 
-      <form class="ticket-form">
+      <h2>Report Issue</h2>
 
-        <label>Ticket Title / Subject</label>
-        <input type="text" placeholder="Enter subject" required>
-
-        <label>Category</label>
-        <select required>
-          <option value="">Select category</option>
-          <option>Hardware</option>
-          <option>Software</option>
-          <option>Network</option>
-          <option>Account</option>
-          <option>Other</option>
-        </select>
-
-        <label>Priority Level</label>
-        <select required>
-          <option value="">Select priority</option>
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-          <option>Critical</option>
-        </select>
-
-        <label>Description of Issue</label>
-        <textarea rows="4" placeholder="Describe the issue..." required></textarea>
-
-        <label>Date & Time Issue Occurred</label>
-        <input type="datetime-local" required>
-
-        <label>Location / Office</label>
-        <input type="text" placeholder="e.g. IT Office, Blantyre HQ" required>
-
-        <button type="submit">Submit Ticket</button>
-
-      </form>
+      <span class="close-btn" onclick="closeModal()">
+        &times;
+      </span>
 
     </div>
 
+    <!-- FORM -->
+    <form>
+
+      <div class="form-grid">
+
+        <!-- TITLE -->
+        <div class="form-group full-width">
+
+          <label>Ticket Title</label>
+
+          <input 
+            type="text" 
+            placeholder="Enter ticket title"
+            required
+          >
+
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="form-group">
+
+          <label>Category</label>
+
+          <select required>
+            <option value="">Select Category</option>
+            <option>Hardware</option>
+            <option>Software</option>
+            <option>Network</option>
+            <option>System</option>
+            <option>Other</option>
+          </select>
+
+        </div>
+
+        <!-- PRIORITY -->
+        <div class="form-group">
+
+          <label>Priority</label>
+
+          <select required>
+            <option value="">Select Priority</option>
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            <option>Critical</option>
+          </select>
+
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="form-group full-width">
+
+          <label>Description</label>
+
+          <textarea 
+            rows="6" 
+            placeholder="Describe the issue in detail..."
+            required
+          ></textarea>
+
+        </div>
+
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="modal-footer">
+
+        <button 
+          type="button" 
+          class="cancel-btn"
+          onclick="closeModal()"
+        >
+          Cancel
+        </button>
+
+        <button 
+          type="submit" 
+          class="submit-btn"
+        >
+          Submit Ticket
+        </button>
+
+      </div>
+
+    </form>
+
   </div>
 
-  <!-- JAVASCRIPT -->
+</div>
+
   <script>
-    function openTicketForm(){
-      document.getElementById("ticketModal").classList.add("show");
+
+    function openModal() {
+      document.getElementById("ticketModal").style.display = "flex";
     }
 
-    function closeTicketForm(){
-      document.getElementById("ticketModal").classList.remove("show");
+    function closeModal() {
+      document.getElementById("ticketModal").style.display = "none";
     }
 
-    window.onclick = function(event){
+    window.onclick = function(event) {
+
       let modal = document.getElementById("ticketModal");
-      if(event.target === modal){
-        modal.classList.remove("show");
+
+      if(event.target == modal){
+        modal.style.display = "none";
       }
+
     }
+
   </script>
 
 </body>
